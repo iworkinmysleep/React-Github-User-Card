@@ -1,25 +1,23 @@
-import React, { Component } from "react";
+import React from "react";
 
-class UserCard extends Component {
-	render() {
+const UserCard = ({user}) => {
+console.log('user', user)
 		return (
-			<div class="card">
-				<img src="" />
-				<div class="card-info">
-					<h3 class="name">user's name</h3>
-					<p class="username">user name</p>
-					<p>Location:</p>
-					<p>
-						Profile:
-						<a href="#">address</a>
-					</p>
-					<p>Followers:</p>
-					<p>Following:</p>
-					<p>Bio:</p>
+			<>
+			
+			<div className="card">
+				<img alt='bio pic' src={user.avatar_url}/>
+				<div className="card-info">
+					<h3>{user.name}</h3>
+					<p>{user.login}</p>
+					<p>Location: {user.location}</p>
+					<p>Followers: {user.followers}</p>
+					<p>Bio: {user.bio}</p>
 				</div>
 			</div>
+			</>
 		);
-	}
+	
 }
 
 export default UserCard;

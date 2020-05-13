@@ -1,4 +1,38 @@
 .card_container {
-  margin: 0 auto;
-  text-align: center;
+	display: grid;
+	text-align: center;
+	margin-left: 20px;
+}
+
+img {
+	height: 100px;
+	width: 100px;
+}
+
+.github_logo {
+	width: 200px;
+}
+
+.header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+h1 {
+	font-size: 60px;
+}
+
+.card {
+	width: 30%;
+	background-color: lightcyan;
+	display: flex;
+	justify-content: space-evenly;
+	box-shadow: 5px 8px black;
+}
+
+.card-info {
+	color: darkslategray;
+	text-align: right;
+	padding:5px;
 }
