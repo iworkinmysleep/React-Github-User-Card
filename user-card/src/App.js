@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import UserCard from "./components/UserCard";
-import Followers from "./components/Followers";
+// import UserCard from "./components/UserCard";
+// import Followers from "./components/Followers";
 import "./App.css";
 import axios from "axios";
 
@@ -8,7 +8,7 @@ class App extends Component {
 	constructor() {
 		super();
 		this.state = {
-			user: [],
+			user: {},
 			followers: [],
 		};
 	}
@@ -22,6 +22,13 @@ class App extends Component {
 				});
 			})
 			.catch((err) => console.log(err));
+		axios
+			.get("https://api.github.com/users/iworkinmysleep/followers")
+			.then((res) => {
+				this.setState({
+					followers: res.data,
+				});
+			});
 	}
 
 	render() {
@@ -40,8 +47,18 @@ class App extends Component {
 				</header>
 
 				<div className="card_container">
-					<UserCard user={this.state.user} />
-					<Followers followers={this.state.followers} />
+					<div className="card">
+						<h3>{this.state.user.login}</h3>
+						<img src={this.state.user.avatar_url} alt="user img"></img>
+					</div>
+					<h2>Followers</h2>
+
+					{this.state.followers.map((item) => (
+						<div className="follower_card">
+							<img src={item.avatar_url} alt="followers img"></img>
+							<h3>{item.login}</h3>
+						</div>
+					))}
 				</div>
 			</>
 		);
