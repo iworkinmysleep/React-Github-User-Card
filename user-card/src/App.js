@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-// import UserCard from "./components/UserCard";
-// import Followers from "./components/Followers";
+
 import "./App.css";
 import axios from "axios";
 
@@ -46,13 +45,12 @@ class App extends Component {
 						alt="github logo"></img>
 				</header>
 
+				<div className="card">
+					<h3>{this.state.user.login}</h3>
+					<img src={this.state.user.avatar_url} alt="user img"></img>
+				</div>
+				<h2>Followers</h2>
 				<div className="card_container">
-					<div className="card">
-						<h3>{this.state.user.login}</h3>
-						<img src={this.state.user.avatar_url} alt="user img"></img>
-					</div>
-					<h2>Followers</h2>
-
 					{this.state.followers.map((item) => (
 						<div className="follower_card">
 							<img src={item.avatar_url} alt="followers img"></img>
